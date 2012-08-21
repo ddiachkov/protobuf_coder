@@ -26,14 +26,13 @@ static inline void write_varint( VALUE output, uint64_t value )
 
 static inline void write_bytes( VALUE output, uint8_t *buffer, long count )
 {
-    CheckType( fields, T_ARRAY );
     rb_str_modify_expand( output, count );
     MEMCPY( RSTRING_PTR( output ) + ( RSTRING_LEN( output ) - count ), buffer, uint8_t, count );
 }
 
 VALUE protobuf_coder_encode( VALUE module, VALUE fields )
 {
-    CheckType( fields, T_ARRAY );
+    Check_Type( fields, T_ARRAY );
 
     VALUE result = rb_str_buf_new( 0 );
 
