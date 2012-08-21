@@ -1,5 +1,5 @@
 require "mkmf"
 
-$CFLAGS << " -pedantic -Wall -Wextra -Werror -Wno-unused-parameter -std=c99"
+$CFLAGS << " -std=c99 -pedantic -Wall -Wextra -Werror -Wno-unused-parameter -Wno-declaration-after-statement "
 
 create_makefile "protobuf_coder"
